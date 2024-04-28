@@ -1,0 +1,10 @@
+.land-card {
+  background-color: #fff;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.land-details {
+  padding: 10px;
+}

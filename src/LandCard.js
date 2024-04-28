@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.css'; 
 import Carousel from 'react-bootstrap/Carousel'; 
-
+import './LandCard.css'
 function LandCard({ land }) {
   const {
     land_media,
@@ -11,12 +11,18 @@ function LandCard({ land }) {
     total_land_size_in_acres: { acres, guntas },
   } = land;
 
+  const imageStyle = {
+    height: '200px',
+    width: '100%',
+    objectFit: 'cover',
+  };
+
   return (
     <div className="land-card">
       <Carousel>
         {land_media.map((image) => (
           <Carousel.Item key={image.id}>
-            <img className="d-block w-100" src={image.image} alt="Land" />
+            <img className="land-card-image" style={imageStyle} src={image.image} alt="Land" />
           </Carousel.Item>
         ))}
       </Carousel>
