@@ -1,4 +1,3 @@
-import './App.css';
 import LandListings from './LandListings';
 
 
