@@ -1,6 +1,6 @@
-import 'bootstrap/dist/css/bootstrap.css'; 
-import Carousel from 'react-bootstrap/Carousel'; 
-import './LandCard.css'
+import "bootstrap/dist/css/bootstrap.css";
+import Carousel from "react-bootstrap/Carousel";
+import "./LandCard.css";
 function LandCard({ land }) {
   const {
     land_media,
@@ -12,9 +12,9 @@ function LandCard({ land }) {
   } = land;
 
   const imageStyle = {
-    height: '200px',
-    width: '100%',
-    objectFit: 'cover',
+    height: "200px",
+    width: "100%",
+    objectFit: "cover",
   };
 
   return (
@@ -22,21 +22,44 @@ function LandCard({ land }) {
       <Carousel>
         {land_media.map((image) => (
           <Carousel.Item key={image.id}>
-            <img className="land-card-image" style={imageStyle} src={image.image} alt="Land" />
+            <img
+              className="land-card-image"
+              style={imageStyle}
+              src={image.image}
+              alt="Land"
+            />
           </Carousel.Item>
         ))}
       </Carousel>
       <div className="land-details">
-        <p>₹ {total_price} Crore</p>
-        <p>
+        <h1>
           {village_name}, {mandal_name}, {district_name}
-        </p>
-        <p>
-          {acres} Acres {guntas} Guntas
-        </p>
+        </h1>
+        {(acres > 0 || guntas > 0) && (
+          <>
+            {acres > 0 && guntas === 0 && (
+              <p>
+                <b>{acres} Acres</b> ₹ {total_price} Crore
+              </p>
+            )}
+            {acres > 0 && guntas !== 0 && (
+              <p>
+                <b>
+                  {acres} Acres {guntas} Guntas
+                </b>{" "}
+                ₹ {total_price} Crore
+              </p>
+            )}
+            {acres === 0 && guntas > 0 && (
+              <p>
+                <b>{guntas} Guntas</b> ₹ {total_price} Crore
+              </p>
+            )}
+          </>
+        )}
       </div>
     </div>
   );
 }
 
-export default LandCard
+export default LandCard;
