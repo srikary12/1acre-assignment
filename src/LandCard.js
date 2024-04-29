@@ -10,9 +10,9 @@ function LandCard({ land }) {
     district_name,
     total_land_size_in_acres: { acres, guntas },
   } = land;
-
+  const roundedPrice = parseFloat(total_price).toFixed(2);
   const imageStyle = {
-    height: "200px",
+    height: "220px",
     width: "100%",
     objectFit: "cover",
   };
@@ -32,14 +32,14 @@ function LandCard({ land }) {
         ))}
       </Carousel>
       <div className="land-details">
-        <h1>
-          {village_name}, {mandal_name}, {district_name}
-        </h1>
+        <h3>
+          {village_name}, {mandal_name}, <br></br>{district_name}[dt]
+        </h3>
         {(acres > 0 || guntas > 0) && (
           <>
             {acres > 0 && guntas === 0 && (
               <p>
-                <b>{acres} Acres</b> ₹ {total_price} Crore
+                <b>{acres} Acres</b> ₹ {roundedPrice} Crore
               </p>
             )}
             {acres > 0 && guntas !== 0 && (
@@ -52,7 +52,7 @@ function LandCard({ land }) {
             )}
             {acres === 0 && guntas > 0 && (
               <p>
-                <b>{guntas} Guntas</b> ₹ {total_price} Crore
+                <b>{guntas} Guntas</b> ₹ {roundedPrice} Crore
               </p>
             )}
           </>
