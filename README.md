@@ -1,6 +1,10 @@
 # Developed as a part of 1 acre hiring assignment
 
 ## Getting Started with the app
+### `npm i`
+
+Installs the app
+
 ### `npm start`
 
 Runs the app in the development mode.\
