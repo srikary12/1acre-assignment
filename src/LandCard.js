@@ -65,7 +65,7 @@ function LandCard({ land }) {
             )}
             {acres === 0 && guntas > 0 && (
               <p>
-                <b>{guntas} Guntas • </b> ₹ {roundedPrice} {displayLakh ? "Lakhs" : "Crores"} per Acre
+                <b>{guntas} Guntas • </b> ₹ {roundedPrice} {displayLakh ? "Lakhs" : "Crores"} for full Property
               </p>
             )}
           </>
